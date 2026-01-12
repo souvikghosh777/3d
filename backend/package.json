@@ -1,0 +1,20 @@
+{
+  "name": "prompt2mesh-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Prompt2Mesh - AI Text to 3D Generator",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": ["3d", "ai", "meshy", "text-to-3d"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.2"
+  }
+}

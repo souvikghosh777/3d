@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-950 text-gray-100;
+  }
+
+  /* Light Mode Styles */
+  .light-mode {
+    @apply bg-gray-50 text-gray-900;
+  }
+
+  .light-mode .bg-dark-950 {
+    @apply bg-gray-50;
+  }
+
+  .light-mode .bg-dark-900 {
+    @apply bg-white;
+  }
+
+  .light-mode .bg-dark-800 {
+    @apply bg-gray-100;
+  }
+
+  .light-mode .bg-dark-700 {
+    @apply bg-gray-200;
+  }
+
+  .light-mode .border-dark-700 {
+    @apply border-gray-300;
+  }
+
+  .light-mode .border-dark-600 {
+    @apply border-gray-300;
+  }
+
+  .light-mode .text-gray-100,
+  .light-mode .text-gray-300,
+  .light-mode .text-gray-400 {
+    @apply text-gray-700;
+  }
+
+  .light-mode .text-white {
+    @apply text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-dark-800 hover:bg-dark-700 text-gray-100 font-semibold py-3 px-6 rounded-lg transition-all duration-200 border border-dark-600;
+  }
+  
+  .input-field {
+    @apply w-full bg-dark-800 border border-dark-600 text-gray-100 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all;
+  }
+  
+  .select-field {
+    @apply w-full bg-dark-800 border border-dark-600 text-gray-100 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all cursor-pointer;
+  }
+  
+  .card {
+    @apply bg-dark-900 border border-dark-700 rounded-xl p-6 shadow-xl;
+  }
+
+  /* Smooth Page Transitions */
+  .page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  .page-exit {
+    opacity: 1;
+  }
+
+  .page-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+}
