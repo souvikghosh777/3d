@@ -1,0 +1,165 @@
+/* Floating Models Container */
+.floating-models-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Base Floating Shape */
+.floating-shape {
+  position: absolute;
+  animation: float 8s ease-in-out infinite, rotate3d 12s linear infinite;
+  opacity: 0.6;
+  filter: blur(0px);
+}
+
+.floating-shape.small {
+  transform: scale(0.6);
+}
+
+/* Cube */
+.cube {
+  width: 80px;
+  height: 80px;
+  transform-style: preserve-3d;
+  animation: float 8s ease-in-out infinite, rotateCube 15s linear infinite;
+}
+
+.cube-face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(147, 51, 234, 0.4));
+  border: 2px solid rgba(59, 130, 246, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.cube-face.front { transform: translateZ(40px); }
+.cube-face.back { transform: rotateY(180deg) translateZ(40px); }
+.cube-face.right { transform: rotateY(90deg) translateZ(40px); }
+.cube-face.left { transform: rotateY(-90deg) translateZ(40px); }
+.cube-face.top { transform: rotateX(90deg) translateZ(40px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+/* Sphere */
+.sphere {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.5), rgba(59, 130, 246, 0.3));
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.4),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.3),
+    inset 10px 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Pyramid */
+.pyramid {
+  width: 0;
+  height: 0;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.pyramid-face {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 86px solid rgba(139, 92, 246, 0.4);
+  border-top: 2px solid rgba(139, 92, 246, 0.6);
+}
+
+.pyramid-face.front { transform: translateZ(29px) rotateX(30deg); }
+.pyramid-face.back { transform: translateZ(-29px) rotateX(30deg) rotateY(180deg); }
+.pyramid-face.right { transform: rotateY(90deg) translateZ(29px) rotateX(30deg); }
+.pyramid-face.left { transform: rotateY(-90deg) translateZ(29px) rotateX(30deg); }
+
+/* Torus */
+.torus {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: transparent;
+  border: 15px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 
+    0 0 20px rgba(16, 185, 129, 0.3),
+    inset 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Diamond */
+.diamond {
+  width: 0;
+  height: 0;
+  border: 40px solid transparent;
+  border-bottom: 70px solid rgba(236, 72, 153, 0.4);
+  position: relative;
+}
+
+.diamond::after {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 70px;
+  width: 0;
+  height: 0;
+  border: 40px solid transparent;
+  border-top: 40px solid rgba(236, 72, 153, 0.4);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .floating-shape {
+    opacity: 0.2;
+  }
+  
+  .cube, .cube-face {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .sphere {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .torus {
+    width: 60px;
+    height: 60px;
+    border-width: 10px;
+  }
+}

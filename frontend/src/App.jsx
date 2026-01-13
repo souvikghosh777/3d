@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 // Components
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
+import CursorLight from './components/CursorLight';
+import FloatingModels from './components/FloatingModels';
 
 // Pages
 import ViewerPage from './pages/ViewerPage';
@@ -24,6 +26,12 @@ function App() {
   return (
     <Router>
       <div className="app">
+        {/* Cursor Light Effect */}
+        <CursorLight />
+        
+        {/* Floating 3D Background Models */}
+        <FloatingModels />
+        
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
